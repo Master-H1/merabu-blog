@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+{%extends 'base.html'%} {%load static%} {%block title%} List of my posts
+{%endblock%} {%block content%}
+<style>
+  body,
+  #pa {
+    background-color: rgb(173, 210, 209);
+    font-family: sans-serif;
+
+  }
+</style>
+<h3 class="text-center mt-3 pb-2">My collected Posts</h3>
+<div class="container-fluid d-flex flex-row justify-content-start bg-tertiary flex-wrap cont1">
+  <br />
+  {%for post in posts%}
+  <a href="{%url 'eachpo' post.slug%}" style="text-decoration: none;">
+    <div class="container d-flex flex-row justify-content-center flex-wrap" id="pa">
+      <br />
+      <div class="card p-3" style="width: 20rem; height: 27rem">
+        <img src="{{post.image.url}}" alt="..." />
+        <div class="card-body">
+          <h5 class="card-title">{{post.title}}</h5>
+          <p class="card-text">
+            {{post.excerpt}}
+          </p>
+        </div>
+      </div>
+    </div>
+  </a>
+  {%endfor%}
+
+</div>
+{%endblock%}

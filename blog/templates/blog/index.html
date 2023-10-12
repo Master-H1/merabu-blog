@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+{%extends 'base.html'%} {% load static%} {%block title%} My blog {%endblock%}
+{%block content%}
+
+<div class="container-fluid flu">
+  <section class="container1">
+    <div class="profile">
+      <div class="image">
+        <img src="{%static 'img/me.jpg'%}" alt="" width="200" height="200" />
+        <span>Welcome to Merabu's <br />
+          Blog site!</span>
+        <div style="padding-top: 30px; font-size:25px">
+          <p>Hi, I'm ABUNGANIRABAWE Merchior on the nick of Merabu, I'm Full stack Web Developer especially on
+            Back End
+            development. </p>
+          <p>I love blog on modern web and software development technologies and the world nature in General!!!</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Second Div -->
+  <section class="container-fluid bg-light fu">
+    <div class="cont">
+      <h3>My Latest Posts</h3>
+      <div class="container d-flex flex-row justify-content-center bg-light flex-wrap">
+        <br />
+        {%for post in latest_posts%}
+        <a href="{%url 'eachpo' post.slug%}" style="text-decoration: none;">
+          <div class="card p-3" style="width: 22rem; height: 27rem">
+            <img src="{{post.image.url}}" alt="..." />
+            <div class="card-body">
+              <h5 class="card-title">{{post.title}}</h5>
+              <p class="card-text">
+                {{post.excerpt}}
+              </p>
+            </div>
+            <div id="tagName">New</div>
+          </div>
+        </a>
+        {%endfor%}
+      </div>
+    </div>
+  </section>
+  <!-- What I do section -->
+
+</div>
+{%endblock%}

@@ -1,0 +1,29 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+#stored {
+  width: 80%;
+  max-width: 40rem;
+  background-color: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  margin: 50px auto;
+  padding: 10px;
+  text-align: center;
+}
+#stored ul {
+  list-style-type: none;
+}
+#stored ul li {
+  margin: 10px 0px;
+  width: 100%;
+  background-color: rgb(200, 198, 198);
+  padding: 10px 20px;
+  border-radius: 10px;
+}
+#stored ul li a {
+  text-decoration: none;
+  color: rgb(32, 44, 61);
+  font-size: 20px;
+}

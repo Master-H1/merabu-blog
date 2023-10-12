@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+{%extends 'base.html'%}
+{%load static%}
+{%block title%}
+post details
+{%endblock%}
+{%block content%}
+<style>
+  body {
+    background-color: rgb(173, 210, 209);
+    font-family: sans-serif;
+
+  }
+</style>
+
+<div class="container-fluid d-flex flex-column justify-content-center flex-wrap">
+  {%if comment_form.errors%}
+  <div class="errosoccur">
+    <h2>Comment Submission failed!</h2>
+    <a href="#comment">Fix</a>
+  </div>
+  {%endif%}
+  <div class="part1 p-4 d-flex flex-row align-items-center flex-wrap flex-derection">
+    <div class="p1 d-flex justify-content-center flex-column">
+      <h1>{{post.title}}</h1>
+      <div id="tags">
+        {%for tag in post_tags%}
+        <span>{{tag.caption}}</span>
+        {%endfor%}
+      </div>
+      <div id="readlater">
+        <form action="{%url 'readlater'%}" method="POST">
+          {%csrf_token%}
+          <input type="hidden" name="post_id" value="{{post.id}}">
+          <button>
+            {%if saved_for_later%}
+            Remove from "Read Later" List
+            {%else%}
+            Read Later
+            {%endif%}
+          </button>
+        </form>
+      </div>
+    </div>
+    <div class="p1 d-flex justify-content-center flex-column">
+      <img src="{{post.image.url}}" alt="" width="150" height="150" />
+      <b>By <a href="mailto:{{post.author.email_address}}">{{post.author}}</a></b>
+      <p>Last update on <b>{{post.date|date:"d M Y"}}</b></p>
+    </div>
+  </div>
+</div>
+<!-- section of post detail -->
+<section class="row">
+  <section class="col-md-8">
+    <div class="container part2 p-2 bg-light">
+      <p>{{post.content | linebreaks}}</p>
+    </div>
+    <!-- Display comments -->
+    <div class="container part3 mt-4 p-2 bg-light">
+      <h1 class="my-3">Comments for this post</h1>
+      <ul>
+        {%for comment in comments%}
+        <li>
+          <h2>@{{comment.username}}</h2>
+          <p>{{comment.text | linebreaks}}</p>
+          <p style="text-align: center;"><i>commented on: <b>{{comment.date|date:"d M Y"}}</b></i></p>
+        </li>
+        {%endfor%}
+      </ul>
+      {%if not comments%}
+      <p>No comment added to this post!</p>
+      <p>Add yours.......................</p>
+      {%endif%}
+    </div>
+  </section>
+  <!-- comment part -->
+  <section id="comment" class="col-md-3">
+    <h2>Your Comment</h2>
+    <form action="{%url 'eachpo' post.slug%}" method="POST">
+      {%csrf_token%}
+      {%for form_field in comment_form%}
+      <div class="form-group {%if form_field.errors%} invalid{%endif%}">
+        {{form_field.label_tag}}
+        {{form_field}}
+        {{form_field.errors}}
+      </div>
+      {%endfor%}
+      <button>Save Comment</button>
+    </form>
+  </section>
+
+</section>
+{%endblock%}

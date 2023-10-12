@@ -1,0 +1,131 @@
+#tags {
+  margin-top: 20px;
+}
+#tags > span {
+  color: #050505ef;
+  background-color: rgb(85, 247, 87);
+  border-radius: 10px;
+  padding: 5px 10px;
+}
+#comment {
+  width: 80%;
+  max-width: 30rem;
+}
+.part3 h2 {
+  color: blue;
+}
+.part3 h1 {
+  text-align: center;
+}
+.part2,
+.part3 {
+  border-radius: 10px;
+}
+.part3 h1 {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  background-color: #3e1a9fb6;
+  color: white;
+  font-style: italic;
+}
+.part3 ul {
+  list-style-type: none;
+}
+.part3 ul li {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  padding: 10px;
+}
+#comment {
+  width: 40%;
+  max-width: 30rem;
+  margin: 2rem auto;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  padding: 2rem;
+  background-color: white;
+  border-radius: 1rem;
+}
+
+#comment label {
+  display: block;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+#comment input,
+#comment textarea {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid rgb(48, 54, 59);
+  box-shadow: 0 2px 8px rgba(38, 155, 245, 0.26);
+  outline: none;
+}
+
+#comment input:focus,
+#comment textarea:focus {
+  background-color: rgb(173, 210, 209);
+  border: none;
+}
+
+#comment h2 {
+  text-align: center;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+#comment button {
+  background-color: #261554;
+  color: white;
+  border-radius: 10px;
+  padding: 10px 20px;
+  font-size: 20px;
+  border: none;
+  cursor: pointer;
+}
+.errorlist {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  color: #ad0423;
+}
+.invalid label {
+  color: #ad0423;
+}
+.invalid input,
+.invalid textarea {
+  border: 1px solid #ad0423;
+  background-color: #fda7b7;
+}
+.errosoccur {
+  background-color: #fda7b7;
+  width: 90%;
+  max-width: 40rem;
+  border: 1px solid #ad0423;
+  color: #ad0423;
+  border-radius: 6px;
+  margin: 1rem auto;
+  padding: 20px;
+}
+.errosoccur a {
+  text-decoration: none;
+  padding: 10px 20px;
+  border: 6px;
+  color: white;
+  background-color: #ad0423;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+#readlater {
+  margin-top: 2rem;
+}
+#readlater button {
+  background-color: transparent;
+  border: 1px solid white;
+  padding: 1rem 2rem;
+  color: white;
+}
+#readlater button:hover,
+#readlater button:active {
+  background-color: white;
+  color: #261554;
+}

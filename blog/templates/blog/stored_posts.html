@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+{%extends 'base.html'%}
+{%load static%}
+{%block title%}
+My stored posts
+{%endblock%}
+
+{%block content%}
+<style>
+    body {
+        background-color: rgb(173, 210, 209);
+        font-family: sans-serif;
+
+    }
+</style>
+<section id="stored">
+    {%if not has_posts%}
+    <p>You didn't save any posts for Read later</p>
+    {%endif%}
+    <ul>
+        {%for post in posts%}
+        <li><a href="{%url 'eachpo' post.slug%}">{{post.title}}</a></li>
+        {%endfor%}
+    </ul>
+</section>
+{%endblock%}
