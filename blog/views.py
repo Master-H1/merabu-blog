@@ -11,7 +11,7 @@ from django.urls import reverse
 
 
 class IndexView(ListView):
-    template_name = "blog/index.html"
+    template_name = "index.html"
     model = Post
     ordering = ["-date"]
     context_object_name = "latest_posts"
@@ -23,7 +23,7 @@ class IndexView(ListView):
 
 
 class allPostsView(ListView):
-    template_name = "blog/allposts.html"
+    template_name = "allposts.html"
     model = Post
     ordering = "-date"
     context_object_name = "posts"
@@ -51,7 +51,7 @@ class EachPostView(View):
                    "comments": post.comments.all(),
                    "saved_for_later": self.is_stored_post(request, post.id),
                    "comment_form": comment_form, "post": post}
-        return render(request, "blog/eachpost.html", context)
+        return render(request, "eachpost.html", context)
 
     def post(self, request, slug):
         comment_form = CommentForm(request.POST)
@@ -67,7 +67,7 @@ class EachPostView(View):
                    "comments": post.comments.all(),
                    "saved_for_later": self.is_stored_post(request, post.id),
                    "comment_form": comment_form, "post": post}
-        return render(request, "blog/eachpost.html", context)
+        return render(request, "eachpost.html", context)
 
 
 class ReadLaterView(View):
@@ -84,7 +84,7 @@ class ReadLaterView(View):
             context["posts"] = posts
             context["has_posts"] = True
 
-        return render(request, "blog/stored_posts.html", context)
+        return render(request, "stored_posts.html", context)
 
     def post(self, request):
         stored_posts = request.session.get("stored_posts")
